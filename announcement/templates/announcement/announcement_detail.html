@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3> {{ object.header }}</h3>
+<div> {{ object.description }} </div>
+<div> City: {{ object.city.name }} </div>
+<div> Author: {{ object.author.first_name }} </div>
+<div> Views: {{ object.views_count }} </div>
+
+
+{% endblock %}

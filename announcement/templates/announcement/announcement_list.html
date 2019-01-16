@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Announcements</h2>
+	<div style="display: flex; flex-direction: row;">
+    {% for announce in object_list %}
+    	<div style="margin-right: 1em;">
+            <h3> <a href="{% url 'announcement-detail' announce.pk %}">{{ announce.header }}</a> </h3>
+            <div> {{ announce.description }} </div>
+            <div> City: {{ announce.city.name }} </div>
+            <div> Author: {{ announce.author.first_name }} </div>
+        </div>
+    {% endfor %}
+	</div>
+
+{% endblock %}
