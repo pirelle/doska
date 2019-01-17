@@ -1,8 +1,6 @@
 # Doska
 
-## Installing
-
-Running project locally
+## Running project locally
 
 ```
 apt install redis
