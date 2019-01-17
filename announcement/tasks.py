@@ -2,6 +2,7 @@ from celery import shared_task
 
 from django.contrib.auth.models import User
 from django.contrib.sessions.models import Session
+from django.db.models import F
 from django.db.utils import IntegrityError
 
 from .models import Announcement
@@ -17,7 +18,7 @@ def increment_announcement_view(user_id=None, session_key=None, announce_id=None
 
     try:
         announce.views.add(instance)
-        announce.views_count += 1
+        announce.views_count = F('views_count') + 1
         announce.save()
     except IntegrityError:
         pass
